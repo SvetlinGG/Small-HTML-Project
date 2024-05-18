@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube with Images</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:aqua
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            perspective: 600px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg) rotateY(-45deg);
+            animation: rotateCube 10s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            backface-visibility: hidden;
+        }
+
+        .cube-face.front { transform: translateZ(100px); background-image: url('Archi.jpg'); }
+        .cube-face.back { transform: rotateY(180deg) translateZ(100px); background-image: url('Gabi i to.jpeg'); }
+        .cube-face.left { transform: rotateY(-90deg) translateZ(100px); background-image: url('Toni.jpg'); }
+        .cube-face.right { transform: rotateY(90deg) translateZ(100px); background-image: url('Gabi2.jpeg'); }
+        .cube-face.top { transform: rotateX(90deg) translateZ(100px); background-image: url('Nie.jpeg'); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); background-image: url('To.jpeg'); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(-30deg) rotateY(-45deg); }
+            to { transform: rotateX(-30deg) rotateY(315deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+    </div>
+</body>
+</html>
+
